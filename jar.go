@@ -88,10 +88,7 @@ func LoadFromJson(o *Options,src []byte)(*Jar,error){
 	jar := &Jar{
 		Entries: make(map[string]map[string]Entry),
 	}
-	err:=json.Unmarshal(src,jar)
-	if err!=nil{
-		return nil,err
-	}
+	json.Unmarshal(src,jar)
 	if o != nil {
 		jar.PsList = o.PublicSuffixList
 	}
